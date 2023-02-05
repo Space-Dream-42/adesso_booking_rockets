@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<div th:replace="fragments/patterns/commonUse :: head"></div>
+
+<body>
+
+<div th:replace="fragments/patterns/commonUse :: navigationBar"></div>
+
+<main>
+    <div th:replace="fragments/components/contents :: heading(text='Please fill up the textboxes')"></div>
+
+    <section class="container w-25">
+        <form class="form-signin mt-5 text-center" method="post" th:action="'/accounts/customers'">
+            <div class="mb-3"
+                 th:insert="fragments/components/textfields :: textInput(labelText='Username',variableName='userName',margin='true')"></div>
+            <div class="mb-3"
+                 th:insert="fragments/components/textfields :: textInput(labelText='Password',variableName='password')"></div>
+            <div class="mb-3"
+                 th:insert="fragments/components/textfields :: textInput(labelText='Name',variableName='name')"></div>
+            <div class="mb-3"
+                 th:insert="fragments/components/textfields :: textInput(labelText='Age',variableName='age')"></div>
+            <div class="mb-3"
+                 th:insert="fragments/components/textfields :: textInput(labelText='Experience',variableName='experience')"></div>
+            <div class="mb-3"
+                 th:insert="fragments/components/textfields :: textInput(labelText='cashBalance',variableName='cashBalance')"></div>
+            <div class="mb-3"
+                 th:insert="fragments/components/buttons :: submitButton(text='Create new customer account')"></div>
+        </form>
+    </section>
+</main>
+
+</body>
+
+<div th:replace="fragments/patterns/commonUse :: footer"></div>
+</html>

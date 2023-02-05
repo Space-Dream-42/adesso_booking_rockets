@@ -1,0 +1,4 @@
+<div th:fragment="textInput(labelText, variableName)">
+    <label class="sr-only">[[${labelText}]]</label>
+    <input type="text" th:name="${variableName}" value="" class="form-control" th:placeholder="${labelText}" required="">
+</div>

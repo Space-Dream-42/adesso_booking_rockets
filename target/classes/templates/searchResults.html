@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<div th:replace="fragments/patterns/commonUse :: head"></div>
+
+<body>
+
+<div th:replace="fragments/patterns/commonUse :: navigationBar"></div>
+
+<main>
+    <div th:replace="fragments/components/contents :: heading(text='Search results:')"></div>
+    <div class="mt-5" th:insert="fragments/patterns/tables :: missionTableSearchResults(link='./overviews')"></div>
+</main>
+
+</body>
+
+<div th:replace="fragments/patterns/commonUse :: footer"></div>
+</html>

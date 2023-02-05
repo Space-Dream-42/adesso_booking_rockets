@@ -1,0 +1,68 @@
+<!--Attention: use 'missions' as variable name-->
+<div th:fragment="missionTable">
+    <table class="table text-white">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Mission name</th>
+            <th scope="col">Start time</th>
+            <th scope="col">Lift-off date</th>
+            <th scope="col">Start planet</th>
+            <th scope="col">Target planet</th>
+            <th scope="col">Duration</th>
+            <th scope="col">Estimated time of arrival</th>
+            <th scope="col">Ticket price</th>
+            <th scope="col">Amount of tickets</th>
+            <th scope="col">Starting place</th>
+            <th scope="col">Rocketname</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="mission: ${missions}">
+            <th scope="row" th:text="${mission.getId()}"></th>
+            <td th:text="${mission.getMissionName()}"></td>
+            <td th:text="${mission.getStartTime()}"></td>
+            <td th:text="${mission.getLiftOffDate()}"></td>
+            <td th:text="${mission.getStartPlanet()}"></td>
+            <td th:text="${mission.getTargetPlanet()}"></td>
+            <td th:text="${mission.getDuration()}"></td>
+            <td th:text="${mission.getEstimatedTimeOfArrival()}"></td>
+            <td th:text="${mission.getTicketPrice()}"></td>
+            <td th:text="${mission.getAmountOfTickets()}"></td>
+            <td th:text="${mission.getStartingPlace()}"></td>
+            <td th:text="${mission.getRocketName()}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!--Attention: use 'missions' as variable name-->
+<!--link: the link of the get-request-->
+<div th:fragment="missionTableSearchResults(link)">
+    <table class="table text-white">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Mission name</th>
+            <th scope="col">Rocket</th>
+            <th scope="col">Amounts of tickets</th>
+            <th scope="col">Price</th>
+            <th scope="col">Estimanted time of arrival</th>
+            <th scope="col">Starting place</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="mission: ${missions}">
+            <th scope="row" th:text="${mission.getId()}"></th>
+            <td th:text="${mission.getMissionName()}"></td>
+            <td th:text="${mission.getRocketName()}"></td>
+            <td th:text="${mission.getAmountOfTickets()}"></td>
+            <td th:text="${mission.getTicketPrice()}"></td>
+            <td th:text="${mission.getEstimatedTimeOfArrival()}"></td>
+            <td th:text="${mission.getStartingPlace()}"></td>
+            <td th:insert="fragments/components/buttons :: getButton(id=${mission.getId()},link=${link},buttonText='Book')"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>

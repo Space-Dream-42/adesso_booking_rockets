@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<div th:replace="fragments/patterns/commonUse :: head"></div>
+
+<body>
+
+<div th:replace="fragments/patterns/commonUse :: navigationBar"></div>
+
+<main class="container w-25">
+    <form class="form-signin mt-5 text-center" method="post" th:action="'/views/' + ${actorType}">
+        <img class="mb-4"
+             src="https://images.vexels.com/media/users/3/152536/isolated/lists/401b51c3a9098f12b566121c92009877-mars-planet-icon.png"
+             alt="" width="72"
+             height="72">
+        <h1 class="h3 mb-3 text-white font-weight-normal">Please log in</h1>
+        <div th:replace="fragments/components/textfields :: textInput(labelText='Username',variableName='userName')"></div>
+        <div th:replace="fragments/components/textfields :: textInput(labelText='Password',variableName='password')"></div>
+        <div th:replace="fragments/components/buttons :: submitButton(text='Log in')"></div>
+    </form>
+
+    <p th:if="${loginErrorMessage} != null" class="text-center text-white bg-danger font-weight-bold">[[${loginErrorMessage}]]</p>
+</main>
+
+</body>
+
+<div th:replace="fragments/patterns/commonUse :: footer"></div>
+</html>

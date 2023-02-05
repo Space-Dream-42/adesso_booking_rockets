@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<div th:replace="fragments/patterns/commonUse :: head"></div>
+
+<body>
+
+<div th:replace="fragments/patterns/commonUse :: navigationBar"></div>
+
+<main>
+    <div th:replace="fragments/components/contents :: heading(text='Welcome ' + ${spacemangerUserName})"></div>
+
+    <section class="mt-5" th:insert="fragments/patterns/submitInformation :: createMission(link='/views/spacelines/create-missions')"></section>
+
+    <section class="mt-5" th:insert="fragments/patterns/tables :: missionTable"></section>
+</main>
+
+<div th:replace="fragments/patterns/commonUse :: footer"></div>
+
+</body>
+</html>

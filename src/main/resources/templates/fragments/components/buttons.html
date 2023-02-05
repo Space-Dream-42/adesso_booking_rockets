@@ -1,0 +1,18 @@
+<a th:fragment="linkButton(link, buttonText)" class="btn btn-primary btn-block m-1" th:href="${link}"
+   role="button" th:text="${buttonText}"></a>
+
+<div th:fragment="getButton(id, link, buttonText)">
+    <form th:action="${link}" method="get" class="row g-3">
+        <input type="hidden" name="id" th:value="${id}">
+        <input class="btn btn-primary" type="submit" th:value="${buttonText}">
+    </form>
+</div>
+
+
+<form th:fragment="postButton(id, link, buttonText)" th:action="${link}" method="post" class="row g-3">
+    <input type="hidden" name="id" th:value="${id}">
+    <input class="btn btn-primary btn-block" type="submit" th:value="${buttonText}">
+</form>
+
+
+<button th:fragment="submitButton(text)" class="btn btn-lg btn-primary btn-block mt-3" type="submit">[[${text}]]</button>

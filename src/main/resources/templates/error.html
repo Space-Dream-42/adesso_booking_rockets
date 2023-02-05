@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<div th:replace="fragments/patterns/commonUse :: head"></div>
+
+<body>
+
+<div th:replace="fragments/patterns/commonUse :: navigationBar"></div>
+
+<div th:replace="fragments/patterns/commonUse :: footer"></div>
+
+<main>
+    <div th:replace="fragments/components/contents :: heading(text='Error')"></div>
+    <p th:if="${errorMessage != null}" class="text-center text-white font-weight-bold">[[${errorMessage}]]</p>
+    <p th:unless="${errorMessage != null}" class="text-center text-white font-weight-bold">Unexpected error. Please contact the developer!</p>
+</main>
+
+</body>
+</html>

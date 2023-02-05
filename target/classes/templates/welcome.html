@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<div th:replace="fragments/patterns/commonUse :: head"></div>
+
+<body>
+
+<div th:replace="fragments/patterns/commonUse :: navigationBar"></div>
+
+<main>
+    <div th:replace="fragments/components/contents :: heading(text='Welcome to SpaceDream')"></div>
+
+    <section class="container w-25">
+        <div class="row">
+            <div class="col text-center">
+                <div th:replace="fragments/components/buttons :: linkButton(link='/logins/customers',buttonText='Customer login')"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                <div th:replace="fragments/components/buttons :: linkButton(link='/logins/spacelines',buttonText='Spaceline login')"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                <div th:replace="fragments/components/buttons :: linkButton(link='/accounts/spacelines',buttonText='Create new spaceline account')"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                <div th:replace="fragments/components/buttons :: linkButton(link='/accounts/customers',buttonText='Create new customer account')"></div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<div th:replace="fragments/patterns/commonUse :: footer"></div>
+
+</body>
+</html>

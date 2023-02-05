@@ -1,0 +1,64 @@
+<div th:fragment="createMission(link)">
+    <form th:action="${link}" method="post" class="form-signin">
+        <div class="row mb-3">
+            <div class="col">
+                <div th:replace="fragments/components/textfields :: textInput(labelText='Missionname',variableName='missionName')"></div>
+            </div>
+            <div class="col">
+                <div th:replace="fragments/components/textfields :: textInput(labelText='Start time',variableName='startTime')"></div>
+            </div>
+            <div class="col">
+                <div th:replace="fragments/components/textfields :: textInput(labelText='Lift-off date',variableName='liftOffDate')"></div>
+            </div>
+            <div class="col">
+                <div th:replace="fragments/components/textfields :: textInput(labelText='Start planet',variableName='startPlanet')"></div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col">
+                <div th:replace="fragments/components/textfields :: textInput(labelText='Target planet',variableName='targetPlanet')"></div>
+            </div>
+            <div class="col">
+                <div th:replace="fragments/components/textfields :: textInput(labelText='Duration',variableName='duration')"></div>
+            </div>
+            <div class="col">
+                <div th:replace="fragments/components/textfields :: textInput(labelText='Estimated time of arrival',variableName='estimatedTimeOfArrival')"></div>
+            </div>
+            <div class="col">
+                <div th:replace="fragments/components/textfields :: textInput(labelText='Ticket price',variableName='ticketPrice')"></div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col">
+                <div th:replace="fragments/components/textfields :: textInput(labelText='Amount of tickets',variableName='amountOfTickets')"></div>
+            </div>
+            <div class="col">
+                <div th:replace="fragments/components/textfields :: textInput(labelText='Starting place',variableName='startingPlace')"></div>
+            </div>
+            <div class="col">
+                <div th:replace="fragments/components/textfields :: textInput(labelText='Rocket name',variableName='rocketName')"></div>
+            </div>
+            <div class="col"></div>
+        </div>
+        <div class="row mb-3 w-25 text-center">
+            <div th:replace="fragments/components/buttons:: submitButton(text='Create new mission')"></div>
+        </div>
+    </form>
+</div>
+
+<div th:fragment="searchQuery(link)">
+    <form th:action="${link}" method="post" class="row g-3">
+        <div th:replace="fragments/components/textfields :: textInput(text='Start planet')"></div>
+        <div th:replace="fragments/components/textfields :: textInput(text='Target planet')"></div>
+        <div th:replace="fragments/components/buttons:: submitButton(text='Search')"></div>
+    </form>
+</div>
+
+<div th:fragment="overview">
+    <p th:text="'Rocketname: ' + ${missionToBook.getRocketName()}"></p>
+    <p th:text="'Starting place: ' + ${missionToBook.getStartingPlace()}"></p>
+    <p th:text="'Target planet: ' + ${missionToBook.getTargetPlanet()}"></p>
+    <p>Amount: 1</p>
+    <p th:text="'Price :' + ${missionToBook.getTicketPrice()}"></p>
+    <div th:replace="fragemnts/components/buttons :: postButton(id=${missionToBook.getId()},link='./orders-completed',buttonText='Book')"></div>
+</div>
